@@ -1,24 +1,24 @@
-# Day 2: Length + Number Check
+# Day 3: Final Rating System
 password = input("Enter a password to test: ")
 
 score = 0
-total_checks = 2
 
-# Check 1: Length
 if len(password) >= 8:
     score = score + 1
 
-# Check 2: Does it contain a number?
 has_number = False
 for character in password:
-    if character.isdigit():  # This checks if the character is a number (0-9)
+    if character.isdigit():
         has_number = True
 
-if has_number == True:
-    print("[+] Good: Password contains at least one number.")
+if has_number:
     score = score + 1
+
+# --- New Day 3 Logic: Evaluate the final score ---
+print("\n--- RESULTS ---")
+if score == 2:
+    print("Rating: STRONG PASSWORD 💪")
+elif score == 1:
+    print("Rating: MEDIUM PASSWORD ⚠️")
 else:
-    print("[-] Weak: Missing a number.")
-
-print(f"Your final security score is: {score}/{total_checks}")
-
+    print("Rating: WEAK PASSWORD ❌") 
